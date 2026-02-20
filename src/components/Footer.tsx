@@ -1,7 +1,7 @@
 import { FaDiscord, FaTwitter, FaYoutube, FaMedium } from "react-icons/fa";
+import { SocialLink } from "@/types";
 
-// Social Links
-const socialLinks = [
+const socialLinks: SocialLink[] = [
   { href: "https://discord.com", icon: <FaDiscord /> },
   { href: "https://twitter.com", icon: <FaTwitter /> },
   { href: "https://youtube.com", icon: <FaYoutube /> },

@@ -1,15 +1,16 @@
 "use client";
 import { gsap } from "gsap";
 import { useState, useRef, useEffect } from "react";
+import { VideoPreviewProps } from "@/types";
 
-const VideoPreview = ({ children }) => {
+const VideoPreview = ({ children }: VideoPreviewProps) => {
   const [isHovering, setIsHovering] = useState(false);
 
-  const sectionRef = useRef(null); // Reference for the container section
-  const contentRef = useRef(null); // Reference for the inner content
+  const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   // Handles mouse movement over the container
-  const handleMouseMove = ({ clientX, clientY, currentTarget }) => {
+  const handleMouseMove = ({ clientX, clientY, currentTarget }: React.MouseEvent<HTMLElement>) => {
     const rect = currentTarget.getBoundingClientRect(); // Get dimensions of the container
 
     const xOffset = clientX - (rect.left + rect.width / 2); // Calculate X offset

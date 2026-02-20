@@ -1,7 +1,8 @@
 import AnimatedTitle from "./AnimatedTitle";
 import Button from "./Button";
+import { ImageClipBoxProps } from "@/types";
 
-const ImageClipBox = ({ src, clipClass }) => (
+const ImageClipBox = ({ src, clipClass }: ImageClipBoxProps) => (
   <div className={clipClass}>
     <img src={src} alt={src} />
   </div>

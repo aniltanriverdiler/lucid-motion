@@ -1,14 +1,13 @@
 "use client";
 import { useState, useRef } from "react";
 import { TiLocationArrow } from "react-icons/ti";
+import { BentoTiltProps, BentoCardProps, CursorPosition } from "@/types";
 
-// BentoTilt component
-export const BentoTilt = ({ children, className = "" }) => {
+export const BentoTilt = ({ children, className = "" }: BentoTiltProps) => {
   const [transformStyle, setTransformStyle] = useState("");
-  const itemRef = useRef(null);
+  const itemRef = useRef<HTMLDivElement>(null);
 
-  // Handles mouse movement
-  const handleMouseMove = (event) => {
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!itemRef.current) return;
 
     const { left, top, width, height } =
@@ -43,15 +42,12 @@ export const BentoTilt = ({ children, className = "" }) => {
   );
 };
 
-// BentoCard component
-export const BentoCard = ({ src, title, description, isComingSoon }) => {
-  // State for cursor position and hover opacity
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+export const BentoCard = ({ src, title, description, isComingSoon }: BentoCardProps) => {
+  const [cursorPosition, setCursorPosition] = useState<CursorPosition>({ x: 0, y: 0 });
   const [hoverOpacity, setHoverOpacity] = useState(0);
-  const hoverButtonRef = useRef(null);
+  const hoverButtonRef = useRef<HTMLDivElement>(null);
 
-  // Handles mouse move for card hover effect
-  const handleMouseMove = (event) => {
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!hoverButtonRef.current) return;
     const rect = hoverButtonRef.current.getBoundingClientRect();
 
@@ -61,7 +57,6 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
     });
   };
 
-  // Handles mouse enter for card hover effect
   const handleMouseEnter = () => setHoverOpacity(1);
   const handleMouseLeave = () => setHoverOpacity(0);
 

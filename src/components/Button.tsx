@@ -1,6 +1,7 @@
 import clsx from "clsx";
+import { ButtonProps } from "@/types";
 
-const Button = ({ id, title, rightIcon, leftIcon, containerClass }) => {
+const Button = ({ id, title, rightIcon, leftIcon, containerClass }: ButtonProps) => {
   return (
     <button
       id={id}
